@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Văn Bản Đang Xem</title>
+    <!-- Font Icon -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="app">
+        <div class="container">
+            <!-- Header -->
+            <div class="row header">
+                <div class="logo">
+                    <a href="/index.html"><h3>E-Sign</h3></a>
+                </div>
+                <div class="navbar">
+                    <div class="nav-icon">
+                        <span class="fas fa-bell notify"></span>
+                    </div>
+                    <div class="nav-icon" onclick="settingsMenuToggle()">
+                        <span class="fas fa-cog setting"></span>
+                    </div>
+                        <!-- Setting Menu Sub-->
+                            <div class="settings-menu" id="myDropdown">
+                                <a href="#" class="link-menu"><i class="fas fa-users-cog"></i> Quản lý người dùng</a>
+                                <a href="#" class="link-menu"><i class="fas fa-user-cog"></i> Phần quyền người dùng</a>
+                                <a href="#" class="link-menu"><i class="fas fa-user-plus"></i> Tạo người dùng</a>
+                                <a href="#" class="link-menu"><i class="fas fa-user-tag"></i> Tạo gắn thẻ</a>
+                            </div>       
+                        <!-- End Admin -->
+                    <div class="nav-icon">
+                        <span class="fas fa-user-circle user"></span>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Content -->
+
+            <div class="row content">
+                <div class="boxleft">
+                    <div class="upfile">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            
+                            <div class="file-upload">
+                                <input type="file">
+                                <i class="fas fa-cloud-upload-alt"></i> Tải file
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <div class="menu-left">
+                        
+                            <button class="dropdown-btn">
+                                <i class="fas fa-file-alt icon-left"></i> Danh sách văn bản <i class="fas fa-angle-down icon-right"></i>
+                            </button>
+                            <div class="dropdown-container">
+                                <a href="./signed.html"><i class="fas fa-check-circle"></i> Văn bản đã ký</a>
+                                <a href="./unsigned.html"><i class="fas fa-spinner"></i> Văn bản chưa ký</a>
+                                <a href="./watching.html"><i class="fas fa-eye"></i> Văn bản đang xem</a>
+                                <a href="./deleted.html"><i class="fas fa-trash-alt"></i> Văn bản đã hủy</a>
+                            </div>
+                            <button class="dropdown-btn">
+                                <i class="fas fa-file-signature  icon-left"></i> Quản lý chữ ký <i class="fas fa-angle-down icon-right"></i>
+                            </button>
+                            <div class="dropdown-container">
+                                <a href="/view/list-sign/sign.html"><i class="fas fa-signature"></i> Chữ ký</a>
+                                <a href="/view/list-sign/wood-sign.html"><i class="fab fa-creative-commons-sampling"></i> Dấu mộc</a>
+                                <a href="/view/list-sign/edit-history.html"><i class="fas fa-history"></i> Lịch sử chỉnh sửa</a>
+                            </div>
+                            <button class="dropdown-btn">
+                                <i class="fas fa-users icon-left"></i> Danh sách khách hàng <i class="fas fa-angle-down icon-right"></i>
+                            </button>
+                                <div class="dropdown-container">
+                                    <a href="#"><i class="fas fa-check-circle"></i> Văn bản đã ký</a>
+                                    <a href="#"><i class="fas fa-spinner"></i> Văn bản chưa ký</a>
+                                    <a href="#"><i class="fas fa-eye"></i> Văn bản đang xem</a>
+                                    <a href="#"><i class="fas fa-trash-alt"></i> Văn bản đã hủy</a>
+                                </div>
+                            <button class="dropdown-btn">
+                                <i class="fas fa-user-friends icon-left"></i> Danh sách đối tác <i class="fas fa-angle-down icon-right"></i>
+                            </button>
+                                <div class="dropdown-container">
+                                    <a href="#"><i class="fas fa-check-circle"></i> Văn bản đã ký</a>
+                                    <a href="#"><i class="fas fa-spinner"></i> Văn bản chưa ký</a>
+                                    <a href="#"><i class="fas fa-eye"></i> Văn bản đang xem</a>
+                                    <a href="#"><i class="fas fa-trash-alt"></i> Văn bản đã hủy</a>
+                                </div>
+                    </div>
+                    
+                </div>
+                <div class="boxright">
+                    <h3>Danh Sách Văn Bản Đang Xem</h3>
+                    <div class="main-content">
+                        <div class="box-search">
+                            <form action="#" method="post">
+                                <input type="text" name="kyw" placeholder="Tìm kiếm văn bản...">
+                                <button type="submit" class="btn submit"><i class="fas fa-search"></i> Tìm kiếm</button>
+                            </form>
+                        </div>
+                        <div class="listbox">
+                            <table class="table-ds">
+                                <tr>
+                                    <th><input type="checkbox" name="checkall"></th>
+                                    <th>STT</th>
+                                    <th>Tên Văn Bản</th>
+                                    <th></th>
+                                    <th>Số Văn Bản</th>
+                                    <th>Người Lập</th>
+                                    <th>Đang Xem</th>
+                                    <th>Nhắc Lại</th>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="checkone"></td>
+                                    <td>01</td>
+                                    <td>Hợp đồng thiết bị PVS3-MNS</td>
+                                    <td><i class="fas fa-eye view"></i></td>
+                                    <td>001</td>
+                                    <td>Linh Đan</td>
+                                    <td>Mr. Tony, Mr. Maxx</td>
+                                    <td>
+                                        <div class="remind-all">
+                                            <a href="#">Nhắc tất cả</a>
+                                        </div>
+                                        <br>
+                                        <div class="remind">
+                                            <a href="#">Nhắc lại</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="checkone"></td>
+                                    <td>02</td>
+                                    <td>Hợp đồng thiết bị PVS3-MNS</td>
+                                    <td><i class="fas fa-eye view"></i></td>
+                                    <td>002</td>
+                                    <td>Linh Đan</td>
+                                    <td>Mr. Tony, Mr. Maxx</td>
+                                    <td>
+                                        <div class="remind-all">
+                                            <a href="#">Nhắc tất cả</a>
+                                        </div>
+                                        <br>
+                                        <div class="remind">
+                                            <a href="#">Nhắc lại</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="checkone"></td>
+                                    <td>03</td>
+                                    <td>Hợp đồng thiết bị PVS3-MNS</td>
+                                    <td><i class="fas fa-eye view"></i></td>
+                                    <td>003</td>
+                                    <td>Linh Đan</td>
+                                    <td>Mr. Tony, Mr. Joe</td>
+                                    <td>
+                                        <div class="remind-all">
+                                            <a href="#">Nhắc tất cả</a>
+                                        </div>
+                                        <br>
+                                        <div class="remind">
+                                            <a href="#">Nhắc lại</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="checkone"></td>
+                                    <td>04</td>
+                                    <td>Hợp đồng thiết bị PVS3-MNS</td>
+                                    <td><i class="fas fa-eye view"></i></td>
+                                    <td>004</td>
+                                    <td>Linh Đan</td>
+                                    <td>Mr. Tony, Mr. Joe</td>
+                                    <td>
+                                        <div class="remind-all">
+                                            <a href="#">Nhắc tất cả</a>
+                                        </div>
+                                        <br>
+                                        <div class="remind">
+                                            <a href="#">Nhắc lại</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script JS -->
+    <script src="/js/script.js"></script>
+</body>
+</html>
